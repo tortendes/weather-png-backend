@@ -4,6 +4,11 @@ import { generateImage, searchData, getPartOfDay } from './functions';
 const app = express()
 
 app.get('/api/v1/query', async (req, res) => {
+    if (!req.query.location) {
+        res.status(401);
+        return res.send({ message: 'No location given, please add a `location` query.' })
+    }
+    
     const query = req.query.location.toString()
 
     const result = await searchData(query)
@@ -14,7 +19,10 @@ app.get('/api/v1/query', async (req, res) => {
 })
 
 app.get('/api/v1/generate', async (req, res) => {
-
+    if (!req.query.location) {
+        res.status(401);
+        return res.send({ message: 'No location given, please add a `location` query.' })
+    }
     const query = req.query.location.toString()
 
     const result = await searchData(query)
