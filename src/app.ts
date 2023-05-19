@@ -1,7 +1,9 @@
-import express from 'express';
+import express, { Request } from 'express';
+import cors from 'cors'
 import { generateImage, searchData, getPartOfDay } from './functions';
 
 const app = express()
+app.use(cors<Request>())
 
 app.get('/api/v1/query', async (req, res) => {
     if (!req.query.location) {
