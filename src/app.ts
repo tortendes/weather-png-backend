@@ -3,7 +3,9 @@ import cors from 'cors'
 import { generateImage, searchData, getPartOfDay } from './functions';
 
 const app = express()
-app.use(cors<Request>())
+app.use(cors<Request>({
+    origin: ['http://localhost:5173']
+}))
 
 app.get('/api/v1/query', async (req, res) => {
     if (!req.query.location) {
