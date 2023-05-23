@@ -35,7 +35,7 @@ app.get('/api/v1/generate', async (req, res) => {
         return res.send(result)
     }
 
-    const image = await generateImage(`a birds eye view over ${query} with ${result.weatherData.current.weather[0].main} and ${result.weatherData.current.weather[0].description} in ${getPartOfDay()}`)
+    const image = await generateImage(`a view of a historical landmark ${query} with ${result.weatherData.current.weather[0].main} and ${result.weatherData.current.weather[0].description} in ${getPartOfDay()}`)
 
     res.send({
         result,
