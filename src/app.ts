@@ -4,7 +4,7 @@ import { generateImage, searchData, getPartOfDay } from './functions';
 
 const app = express()
 app.use(cors<Request>({
-    origin: ['http://localhost:5173']
+    origin: ['http://localhost:5173', 'https://weather-png.torten.xyz']
 }))
 
 app.get('/api/v1/query', async (req, res) => {
